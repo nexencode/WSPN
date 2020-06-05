@@ -9,12 +9,13 @@ namespace WSP.BL
     /// </summary>
     public class Admin : User
     {
-        public Admin(string firstName, string lastName, int age, RoleType roleType) : base()
+        private static int adminId;
+        public int AdminId { get; set; } = ++adminId;
+        public Admin(string firstName, string lastName, int age)
         {
             this.FirstName = firstName;
             this.LastName = lastName;
             this.Age = age;
-            this.UserRole = new Role(roleType);
         }
     }
 }

@@ -36,6 +36,33 @@ namespace WSP.BL
         {
             Console.WriteLine($"Role{RoleName}, Role Description: {RoleDescription}");
         }
+
+        public void AddActionToRole(Action action)
+        {
+            RoleActions.Add(action);
+        }
+
+        public bool CheckIfActionIsAvailable(string actionName)
+        {
+            bool isAvailable = false;
+
+            foreach (var a in RoleActions)
+            {
+                if (actionName == a.ActionName)
+                {
+                    isAvailable = true;
+                }
+            }
+            return isAvailable;
+        }
+
+        public void PrintAllRoleActions()
+        {
+            foreach (var action in RoleActions)
+            {
+                action.PrintAction();
+            }
+        }
         #endregion
     }
 }

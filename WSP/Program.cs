@@ -18,7 +18,7 @@ namespace WSP
 
             Console.WriteLine("======================");
 
-            User userNew = new Admin("Neko", "Tamo", 29, RoleType.Admin);
+            User userNew = new Admin("Neko", "Tamo", 29);
 
             userRepository.SaveUser(users, userNew);
 
@@ -26,6 +26,16 @@ namespace WSP
             {
                 user.PrintUser();
             }
+
+            RoleRepository.admin.AddActionToRole(ActionRepository.UpdateProduct);
+
+            RoleRepository.admin.AddActionToRole(ActionRepository.CreateProduct);
+
+            RoleRepository.admin.AddActionToRole(ActionRepository.DeleteProduct);
+
+            RoleRepository.admin.PrintAllRoleActions();
+
+
 
             Console.ReadKey();
 
